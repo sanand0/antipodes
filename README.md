@@ -30,9 +30,9 @@ So, I started again, using ChatGPT's own prompt suggestion, and adding my descri
 > Carefully handle countries that straddle the prime meridian - UK, France, Algeria, etc.
 
 The result is this [`antipodes.py`](antipodes.py) and [`antipodal_ocean.geojson`](antipodal_ocean.geojson) that it generates.
-Click the link below to view it on [geojson.io](https://geojson.io)
+Click the link below to [view it on geojson.io](https://geojson.io/#data=data:text/x-url,https%3A%2F%2Fraw.githubusercontent.com%2Fsanand0%2Fantipodes%2Frefs%2Fheads%2Fmain%2Fantipodal_ocean.geojson)
 
-[![View the file on a map](result.webp)](https://geojson.io/#data=data:text/x-url,https%3A%2F%2Fraw.githubusercontent.com%2Fsanand0%2Fantipodes%2Fmain%2Fantipodal_ocean.geojson)
+[![View the file on a map](result.webp)](https://geojson.io/#data=data:text/x-url,https%3A%2F%2Fraw.githubusercontent.com%2Fsanand0%2Fantipodes%2Frefs%2Fheads%2Fmain%2Fantipodal_ocean.geojson)
 
 I didn't change O3's script except to add the `uv` dependencies and switch from the 1:10m to 1:110m maps for speed.
 To run the script:
