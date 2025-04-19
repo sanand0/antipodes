@@ -30,7 +30,7 @@ So, I started again, using ChatGPT's own prompt suggestion, and adding my descri
 > Carefully handle countries that straddle the prime meridian - UK, France, Algeria, etc.
 
 The result is this [`antipodes.py`](antipodes.py) and [`antipodal_ocean.geojson`](antipodal_ocean.geojson) that it generates.
-Click the link below to [view it on geojson.io](https://geojson.io/#data=data:text/x-url,https%3A%2F%2Fraw.githubusercontent.com%2Fsanand0%2Fantipodes%2Frefs%2Fheads%2Fmain%2Fantipodal_ocean.geojson)
+Click the link below to [view the interactive visualization on geojson.io](https://geojson.io/#data=data:text/x-url,https%3A%2F%2Fraw.githubusercontent.com%2Fsanand0%2Fantipodes%2Frefs%2Fheads%2Fmain%2Fantipodal_ocean.geojson):
 
 [![View the file on a map](result.webp)](https://geojson.io/#data=data:text/x-url,https%3A%2F%2Fraw.githubusercontent.com%2Fsanand0%2Fantipodes%2Frefs%2Fheads%2Fmain%2Fantipodal_ocean.geojson)
 
@@ -42,3 +42,11 @@ wget https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_countries.z
 unzip ne_110m_admin_0_countries.zip -d ne_110m_admin_0_countries
 uv run antipodes.py
 ```
+
+A few things I learnt from this:
+
+**Ask for the output, not the code**. Models like [O3](https://platform.openai.com/docs/models/o3) and [O4 Mini](https://platform.openai.com/docs/models/o4-mini) can run code, search, reason, read images, etc. while thinking. The models _are_ the environment, now! Let's stop asking for code and ask for the result instead.
+
+**Edge cases are everywhere**. If all goes well, you get AI-speed results. But when something goes wrong (because UK, France, Algeria, etc. straddle the prime meridian, for example), fixing it takes an expert and human-speed results. In fact, the current output is far from perfect (e.g. Indonesia appears in Brazil which is clearly not an ocean.) Programmers under-estimate edge cases, so compensate for this.
+
+**Geospatial analysis is mature**. I was surprised to see `.difference()` in shapes, which made the core part of the code (`build_antipodal_ocean()`) very concise. Libraries like [`fiona`](https://pypi.org/project/fiona) and [`shapely`](https://pypi.org/project/shapely/) have made a big impact.
