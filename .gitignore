@@ -1,5 +1,4 @@
 *.zip
-*.geojson
 
 # Ignore all directories
 */
